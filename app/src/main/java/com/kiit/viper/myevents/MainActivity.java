@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 getResultsFromApi();
               //  mCallApiButton.setVisibility(View.GONE);
                 mCallApiButton.setEnabled(true);
+                mCallApiButton.setText("REFRESH");
             }
         });
         // activityLayout.addView(mCallApiButton);
@@ -166,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         //activityLayout.addView(mOutputText);
 
         mProgress = new ProgressDialog(this);
-        mProgress.setMessage("Calling Google Calendar API ...");
+        mProgress.setMessage("Loading ...");
 
         //  setContentView(R.layout.activity_calender_v);
 
@@ -465,7 +466,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             if (output == null || output.size() == 0) {
                 mOutputText.setText("No results returned.");
             } else {
-                output.add(0, "Data retrieved using the Google Calendar API:");
+                output.add(0, "Google Calendar Events:");
                 // mOutputText.setText(TextUtils.join("\n", output));
                 ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(
                         MainActivity.this,android.R.layout.simple_list_item_1,output);
