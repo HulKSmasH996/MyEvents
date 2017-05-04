@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
         mOutputText = new TextView(this);
         //mOutputText.setLayoutParams(tlp);
-        mOutputText.setPadding(16, 16, 16, 16);
+        mOutputText.setPadding(16, 16, 16, 12);
         mOutputText.setVerticalScrollBarEnabled(true);
         mOutputText.setMovementMethod(new ScrollingMovementMethod());
         mOutputText.setText(
@@ -429,6 +429,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
             for (Event event : items) {
                 DateTime start = event.getStart().getDateTime();
+
                 if (start == null) {
                     // All-day events don't have start times, so just use
                     // the start date.
@@ -445,7 +446,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
                     e.printStackTrace();
                 }
-                SimpleDateFormat postFormater = new SimpleDateFormat("MM/dd/yyyy");
+                SimpleDateFormat postFormater = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
                 String newDateStr = postFormater.format(date);
                 eventStrings.add(
                         String.format("%s (%s)", event.getSummary(), newDateStr));
